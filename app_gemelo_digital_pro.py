@@ -2,7 +2,6 @@ import streamlit as st
 import simpy
 import random
 import numpy as np
-import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
 # 1. Configuración de la página
@@ -26,7 +25,7 @@ minutos_totales = dias_simulacion * horas_turno * 60
 
 st.sidebar.header("2. Recursos Humanos (RRHH)")
 plantilla_total = st.sidebar.number_input("Total de Operarios Contratados", min_value=1, value=3, step=1)
-ausentismo = st.sidebar.slider("Tasa de Ausentismo/Huelga (%)", 0, 100, 10) / 100.0
+ausentismo = st.sidebar.slider("Tasa de Ausentismo (%)", 0, 100, 10) / 100.0
 operarios_presentes = max(1, round(plantilla_total * (1 - ausentismo)))
 
 st.sidebar.header("3. Materiales")
