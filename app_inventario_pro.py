@@ -10,7 +10,7 @@ st.markdown("Simulación Monte Carlo que encuentra el Punto de Pedido Óptimo mi
 
 # 2. Panel lateral (Inputs del usuario)
 st.sidebar.header("1. Comportamiento Operativo")
-demanda_media = st.sidebar.number_input("Demanda Promedio (unidades/día)", value=100)
+demanda_media = st.sidebar.number_input("Demanda Promedio (unidades/día)", value=120)
 demanda_std = st.sidebar.number_input("Volatilidad Demanda (Std)", value=20)
 lead_time_medio = st.sidebar.number_input("Lead Time Promedio (días)", value=7.0, step=0.5)
 lead_time_std = st.sidebar.number_input("Volatilidad Proveedor (Std)", value=2.0, step=0.5)
@@ -18,10 +18,10 @@ lead_time_std = st.sidebar.number_input("Volatilidad Proveedor (Std)", value=2.0
 st.sidebar.header("2. Restricciones Logísticas")
 punto_pedido_actual = st.sidebar.number_input("Punto de Pedido Actual", value=1000, step=50)
 tamano_lote = st.sidebar.number_input("Múltiplo de Compra (Tamaño Pallet)", min_value=1, value=50, step=10)
-dias_entre_pedidos = st.sidebar.number_input("Frecuencia de Compra (Días entre pedidos)", value=30, step=1)
+dias_entre_pedidos = st.sidebar.number_input("Frecuencia de Compra (Días entre pedidos)", value=90, step=1)
 
 st.sidebar.header("3. Variables Financieras (USD)")
-costo_unitario = st.sidebar.number_input("Costo Unitario del Producto ($)", value=50.0, step=1.0)
+costo_unitario = st.sidebar.number_input("Costo Unitario del Producto ($)", value=90.0, step=1.0)
 tasa_mantenimiento = st.sidebar.slider("Costo Anual de Almacenamiento (%)", 1, 50, 20) / 100.0
 costo_quiebre = st.sidebar.number_input("Lucro Cesante por Unidad Faltante ($)", value=120.0, step=1.0)
 
