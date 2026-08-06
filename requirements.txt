@@ -4,3 +4,5 @@ pandas
 plotly
 simpy
 matplotlib
+statsmodels
+prophet
