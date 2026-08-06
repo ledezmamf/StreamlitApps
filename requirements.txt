@@ -7,3 +7,4 @@ matplotlib
 statsmodels
 prophet
 datetime
+lightgbm
