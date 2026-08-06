@@ -64,7 +64,7 @@ def generar_datos_sinteticos_diarios_complejos():
     # Los primeros 18 meses sube. Los últimos 6 meses colapsa.
     corte_quiebre = int(dias_historicos * 0.75)
     tendencia_1 = np.linspace(100, 300, corte_quiebre)
-    tendencia_2 = np.linspace(300, 150, dias_historicos - corte_quiebre)
+    tendencia_2 = np.linspace(300, 200, dias_historicos - corte_quiebre)
     tendencia = np.concatenate([tendencia_1, tendencia_2])
     
     # 2. Estacionalidad Ruidosa (Fourier + Sinusoidal)
