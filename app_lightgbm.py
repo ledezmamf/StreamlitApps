@@ -8,7 +8,7 @@ from sklearn.metrics import mean_absolute_percentage_error
 
 # 1. Configuración B2B
 st.set_page_config(page_title="Enterprise Forecasting: LightGBM", layout="wide")
-st.title("Machine Learning Avanzado: LightGBM (Microsoft)")
+st.title("LightGBM (Microsoft)")
 st.markdown("Modelo corporativo corregido: Filtra meses/semanas incompletas e incorpora Eventos Excepcionales (Campañas) para romper el 'techo de cristal' algorítmico.")
 
 # 2. Panel Lateral
