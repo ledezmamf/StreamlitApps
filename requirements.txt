@@ -8,4 +8,4 @@ statsmodels
 prophet
 datetime
 lightgbm
-sklearn
+scikit-learn
