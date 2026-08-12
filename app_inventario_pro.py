@@ -120,6 +120,14 @@ if st.sidebar.button("Ejecutar Optimización", type="primary"):
     quiebres_optimos = np.sum(demanda_espera > rop_real_pallet)
     prob_quiebre_optima = (quiebres_optimos / simulaciones) * 100
 
+    # Costo total en el punte de pedido Actual (para comparación)
+    faltante_esperado_actual = np.mean(np.maximum(0, demanda_espera - punto_pedido_actual))
+    stock_seguridad_actual = max(0, punto_pedido_actual - demanda_media_total)
+    costo_total_actual = (
+        stock_seguridad_actual * costo_mant_anual
+        + faltante_esperado_actual * costo_quiebre * ciclos_por_ano
+    )
+    
     # 4. Tablero de Resultados Visuales
     st.markdown("---")
     st.markdown("### Tablero de Decisión Financiera (Impacto Anual)")
@@ -128,7 +136,7 @@ if st.sidebar.button("Ejecutar Optimización", type="primary"):
     col1.metric("Punto Actual", f"{int(punto_pedido_actual)} unid.", f"Riesgo de quiebre: {prob_quiebre_actual:.1f}%", delta_color="blue", delta_arrow="off")
     col2.metric("Punto Sugerido", f"{int(rop_real_pallet)} unid.", f"Riesgo residual: {prob_quiebre_optima:.1f}%", delta_color="blue", delta_arrow="off")
     col3.metric("Stock de Seguridad (Inmovilizado)", f"{int(rop_real_pallet - demanda_media_total)} unid.")
-    col4.metric("Costo de Riesgo Total (Anual)", f"${costo_minimo_real:,.2f}")
+    col4.metric("Costo de Riesgo Total Sugerido (Anual)", f"${costo_minimo_real:,.2f}", f"vs. Actual: {((costo_minimo_real - costo_total_actual) / costo_total_actual * 100):.1f}%", delta_color="normal", delta_arrow="up" if costo_minimo_real > costo_total_actual else "down")
     
     st.markdown("<br>", unsafe_allow_html=True)
     
