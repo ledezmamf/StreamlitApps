@@ -208,4 +208,3 @@ calificacion = st.feedback("stars")
 if calificacion is not None:
     registrar_evento("valoracion", calificacion + 1)
     st.success("¡Gracias por tu opinión!")
-    st.info(f"**💡 Insight Prescriptivo:** El algoritmo encontró que el balance financiero perfecto es pedir a las **{int(rop_teorico)}** unidades. Sin embargo, debido a que su proveedor exige comprar en múltiplos de **{int(tamano_lote)}**, el punto de pedido oficial debe fijarse en **{int(rop_real_pallet)}** unidades. Esto asegura la operación con un costo de riesgo validado de **${costo_minimo_real:,.2f}**.")
